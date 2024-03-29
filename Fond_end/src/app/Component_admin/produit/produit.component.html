@@ -1,0 +1,75 @@
+<form *ngIf="showForm" (ngSubmit)="insertData()" >
+    
+    <div class="form-group">
+      <label for="nom">Nom Produit</label>
+      <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]=" produit.nom">
+    </div>
+    <div class="form-group">
+        <label for="reference">Référence</label>
+        <input type="text" id="reference" name="reference" class="form-control" [(ngModel)]="produit.reference">
+      </div>
+    <div class="form-group">
+      <label for="prix">Prix_Produit</label>
+      <input type="number" id="prix" name="prix" class="form-control" [(ngModel)]="produit.prix">
+    </div>
+    <div class="form-group">
+        <label for="image">image produit</label>
+        <input type="text" id="image" name="image" class="form-control" [(ngModel)]="produit.image" >
+      </div>
+    <div class="form-group">
+      <label for="qt_stock">Quantite de stocke</label>
+      <input type="text" id="qt_stock" name="qt_stock" class="form-control" [(ngModel)]="produit.qt_stock">
+    </div>
+    <div class="form-group">
+        <label for="dimension">Dimension</label>
+        <input type="text" id="dimension" name="dimension" class="form-control" [(ngModel)]="produit.dimension">
+      </div>
+      <div class="form-group">
+        <label for="categorie_id">Categorie_id</label>
+        <input type="text" id="categorie_id" name="categorie_id" class="form-control" [(ngModel)]="produit.categorie_id">
+      </div>
+      
+
+    <button class="btn btn-dark btn-sm mt-4" type="submit">submit</button>
+    </form>
+
+
+    <button class="btn btn-dark btn-sm mt-4"  (click)="toggleForm()">+ New</button>
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Référence</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Image</th>
+            <th scope="col">Quantité stocké</th>
+            <th scope="col">Dimension</th>
+            <th scope="col">Categorie_id</th>
+          
+            <th scope="col">Actions</th> 
+    
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr *ngFor="let prod of produits">
+            <th scope="row">{{prod.id_prod}}</th>
+            <td>{{prod.nom}}</td>
+            <td>{{prod.reference}}</td>
+            <td>{{prod.prix}}</td>
+            <td>{{prod.image}}</td>
+            <td>{{prod.qt_stock}}</td>
+            <td>{{prod.dimension}}</td>
+           
+            <td>{{prod.categorie_id}}</td>
+            <td>
+              <button class="btn btn-info"><i  (click)="openUpdateModal(prod)" >Edit</i> 
+              </button>
+    
+              <button class="btn btn-danger mx-2"><i  (click)="deleteData(prod.id_prod)">Delete</i> <!-- Icône de suppression -->
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table> 

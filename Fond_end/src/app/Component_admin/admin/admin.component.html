@@ -1,0 +1,39 @@
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="content">
+  <div class="sidebar">
+    <br>
+      <h1 style="font-weight: bolder; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 32px; text-align: center;">Admin</h1>
+      <hr width="325px" style="margin-left: -1px;">
+      <div id="list-example" class="list-group">
+          <a class="list-group-item list-group-item-action"  (click)="loadClients()"><i class='fas fa-chevron-right'></i> <span style="margin-left: 10px;"></span> Clients</a>
+          <a class="list-group-item list-group-item-action"  (click)="loadProducts()"><i class='fas fa-chevron-right'></i> <span style="margin-left: 10px;"></span> Produits</a>
+
+          <a class="list-group-item list-group-item-action"  (click)="loadOrders()"><i class='fas fa-chevron-right'></i> <span style="margin-left: 10px;"></span> Commandes</a>
+
+          <a class="list-group-item list-group-item-action"  (click)="loadDashboard()"><i class='fas fa-chevron-right'></i> <span style="margin-left: 10px;"></span> Dashboard</a>
+          <div style="height: 5px;"></div>
+      </div>
+  </div>
+  
+  <div class="main-content" *ngIf="showClients || showProducts || showOrders || showDashboard">
+      <div class="container" *ngIf="showClients">
+        <br>
+          <app-client></app-client>
+          
+      </div>
+      <div class="container" *ngIf="showCategories">
+        <app-categories></app-categories>
+      
+    </div>
+      <div class="container" *ngIf="showProducts">
+        <app-produit></app-produit>
+        <app-categories></app-categories>
+    </div>
+   
+    <div class="container" *ngIf="showOrders">
+      <app-produit></app-produit>
+     
+  </div>
+      <!-- Ajoutez d'autres div pour afficher d'autres contenus -->
+  </div>
+</div>

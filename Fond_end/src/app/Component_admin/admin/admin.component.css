@@ -1,0 +1,26 @@
+.list-group-item:hover{
+    background-color: #ab9d1e;
+    color: white;
+}
+.list-group-item{
+    background-color: rgb(244, 242, 242);
+    width: 160%;
+}
+
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar {
+    width: 200px; /* Ajustez la largeur de la barre latérale selon vos besoins */
+}
+
+.main-content {
+    flex-grow: 1;
+    margin-left: 20px; /* Espacement entre la barre latérale et le contenu principal */
+}
+.container{
+    margin-left: 100px;
+}

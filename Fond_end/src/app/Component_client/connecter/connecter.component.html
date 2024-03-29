@@ -1,0 +1,26 @@
+<br><br><br><br>
+<div  class="wrapper fadeInDown">
+  <div id="formContent"><br>
+
+      <div class="fadeIn first">
+         
+         <h1>Login</h1>
+      </div>
+
+      <!-- Login Form -->
+      <form>
+      <input type="text" id="email" class="fadeIn second" name="email" [(ngModel)]="User.email" placeholder="Email">
+      <input type="password"  class="form-control is-invalid"  id="password" class="fadeIn third" name="password" [(ngModel)]="User.password" placeholder="password">
+      <button type="submit" class="send" routerlink="/cart" (click)="login()">Login</button>
+      <div  *ngIf="this.status == 0" class="alert alert-danger" role="alert">
+          email or password incorrect
+      </div>
+      </form>
+          
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+      <a routerLink="/create_acount" class="underlineHover" (click)="loginForm = !loginForm">I don't have account</a>
+      </div>
+
+  </div>
+</div>

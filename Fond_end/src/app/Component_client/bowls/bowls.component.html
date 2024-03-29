@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bowls</title>
+</head>
+<body>
+  <app-header></app-header>
+<span class="page">
+<app-liste>
+</app-liste>
+<br><br><br>
+    <div class="contenue">
+     <div class="images">
+       <div *ngFor="let produit of produits" class="ligne1">
+         <div  class="cadre">
+           <img [src]="produit.imageUrl"alt="Image"  class="imag">
+           <div class="circle" style="margin-top: -240px;">
+       
+              <a [routerLink]="['/cart']" 
+                class="btn btn-cart my-2 btn-block"><i class='fas fa-shopping-basket' style='font-size:20px; margin-right: 20px;margin-left: -6px;' 
+                [ngClass]="{ 'jaune': isPanierClicked }"  (click)="toggleColor('panier')" (click)="redirectToCard(produit)"></i> </a>
+            
+           </div>
+           
+           <div style="margin-top: 5px;"></div>
+           <div class="circle" (click)="toggleFullscreen(produit.imageUrl)">
+             <i class='fas fa-search-plus'></i>
+           </div>
+           <div style="margin-top: 5px;"></div>
+           <div class="circle">
+               <i class="fa fa-plus" style='font-size:15px; position: absolute;' [ngClass]="{ 'jaune': isPanierClicked }"  (click)="addToCart()"></i>
+               <div style="margin-top: 5px;"></div>
+           </div>
+           <div style="margin-top: 5px;"></div>
+           <div class="circle">
+               <i class="fa fa-minus" style='font-size:15px;' [ngClass]="{ 'jaune': isPanierClicked }" (click)="decrement()"></i>
+               <div style="margin-top: 5px;"></div>
+           </div>
+           <div class="fullscreen-container" [ngClass]="{'visible': isFullscreen && currentImageUrl === produit.imageUrl}">
+             <img [src]="produit.imageUrl"  alt="Image">
+           </div>
+           <hr class="ligne" style="margin-top: 50px;">
+           <div class="desc">
+            <h2>{{ produit.nom }}</h2>
+            <h3>{{ produit.taille }}</h3>
+            <h4>{{ produit.reference }}</h4>
+           </div>
+          </div>
+       </div>
+      </div>
+    </div>     
+    <br><br>
+    <br><br>
+<app-footer>
+
+</app-footer>
+
+
+
